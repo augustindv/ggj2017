@@ -6,7 +6,8 @@ public class EnergyRoom : Room {
 
     // Energy to be added over time
     public float energyAdded;
-    public float duration;
+    public float timeElapsed = 2;
+    public float duration = 6f;
 
     private float localTime;
 
@@ -26,10 +27,12 @@ public class EnergyRoom : Room {
         localTime = 0;
         while (localTime < duration)
         {
-            localTime += Time.deltaTime;
+            localTime += timeElapsed;
             submarine.energy += energyAdded;
+            yield return new WaitForSeconds(timeElapsed);
         }
-   
+        this.isUsed = !this.isUsed;
+
         yield return null;
     }
 }

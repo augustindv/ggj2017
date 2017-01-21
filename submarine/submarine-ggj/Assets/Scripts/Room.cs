@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class Room : MonoBehaviour {
 
-    public static string TAG_CREW_MEMBER = "CrewMember";
-
     [HideInInspector]
     public Collider collider;
     // Boolean to know if the room is occupied by a crew member
@@ -17,6 +15,8 @@ public abstract class Room : MonoBehaviour {
     public Submarine submarine;
     [HideInInspector]
     public string roomName;
+    [HideInInspector]
+    public CrewMember crewMember;
 
     // Use this for initialization
     void Start () {
@@ -30,7 +30,7 @@ public abstract class Room : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == TAG_CREW_MEMBER)
+        if (other.tag == Constants.TAG_CREW_MEMBER)
         {
             isOccupied = true;
         }
@@ -38,7 +38,7 @@ public abstract class Room : MonoBehaviour {
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == TAG_CREW_MEMBER)
+        if (other.tag == Constants.TAG_CREW_MEMBER)
         {
             isOccupied = false;
         }

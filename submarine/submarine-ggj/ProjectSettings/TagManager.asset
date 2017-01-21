@@ -7,6 +7,8 @@ TagManager:
   - Ladder
   - Crew
   - Character
+  - CrewMember
+  - Room
   layers:
   - Default
   - TransparentFX

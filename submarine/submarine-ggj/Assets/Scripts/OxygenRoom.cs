@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OxygenRoom : Room {
-    private static string ROOM_NAME = "oxygen";
 
     // Oxygen to be added over time
-    public float oxygenAdded;
-    public float duration;
+    public float oxygenAdded = 1f;
+    public float timeElapsed = 2;
+    public float duration = 6f;
 
     private float localTime;
 
@@ -28,9 +28,11 @@ public class OxygenRoom : Room {
         localTime = 0;
         while (localTime < duration)
         {
-            localTime += Time.deltaTime;
+            localTime += timeElapsed;
             submarine.oxygen += oxygenAdded;
+            yield return new WaitForSeconds(timeElapsed);
         }
+        this.isUsed = !this.isUsed;
 
         yield return null;
     }
