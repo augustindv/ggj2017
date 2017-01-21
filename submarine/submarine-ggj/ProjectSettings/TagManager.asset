@@ -10,6 +10,7 @@ TagManager:
   - Character
   - CrewMember
   - Room
+  - Door
   layers:
   - Default
   - TransparentFX

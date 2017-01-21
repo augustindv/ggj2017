@@ -43,7 +43,6 @@ public class Sonar : MonoBehaviour {
 	}
 
 	IEnumerator CameraMovement(Vector3 target) {
-		float epsilon = 0.1f;
 		while (Vector3.Distance (mainCamera.transform.position, target) > speed * Time.deltaTime) {
 			var direction = (target - mainCamera.transform.position).normalized;
 			mainCamera.transform.Translate (direction * speed * Time.deltaTime);

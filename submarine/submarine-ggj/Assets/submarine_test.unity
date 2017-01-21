@@ -144,6 +144,34 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 136718993}
   m_Script: {fileID: 11500000, guid: 68bfc88d1647b46efb05627d4fcbe9a7, type: 3}
+--- !u!1 &1924240435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1924240436}
+  m_Layer: 0
+  m_Name: Segment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1924240436
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924240435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.207453, y: -23.618004, z: 58.92662}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2071797379 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1933415026547044, guid: 9727e615fa7fd45f7b0201a8a3ec4e9d,
