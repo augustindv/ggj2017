@@ -81,11 +81,11 @@ public class Player : MonoBehaviour
 
 	void Update () {
 		if (game.CurrentGameMode () == GameMode.RUNNING) {
-			if (Input.GetButtonDown("Pause")) {
+			if (Input.GetButtonDown("Cancel")) {
 				game.PauseGame ();
 			}
 		} else if (game.CurrentGameMode () == GameMode.PAUSED) {
-			if (Input.GetButtonDown("Pause")) {
+			if (Input.GetButtonDown("Cancel")) {
 				game.UnpauseGame ();
 			}
 		} else if (game.CurrentGameMode () == GameMode.ENDED) {

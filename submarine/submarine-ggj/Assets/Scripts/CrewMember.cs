@@ -61,7 +61,6 @@ public class CrewMember : MonoBehaviour {
 	private void UpdateLadders(int difference) {
 		collidingLadders += difference;
 		rigidBody.useGravity = collidingLadders == 0;
-		Debug.Log ("Update ladders (" + difference + ") -> " + collidingLadders);
 	}
 
 	public void Act() {
