@@ -10,11 +10,38 @@ public class Submarine : MonoBehaviour {
 
 	public float climbSpeed;
 
-	float depth;
+	public float thrust;
 
-	float thrust;
+	public float health;
 
 	public Transform world;
+
+	float depth;
+
+	public void AdjustThrust(float multiplier) {
+		thrust = thrust * multiplier;
+	}
+
+	public void AdjustDepth(int direction) {
+		var movement = Time.fixedDeltaTime * climbSpeed;
+		var currentPosition = world.position;
+
+		float position = 0;
+		if (direction > 0 && world.position.y < MinDepth()) {
+			position = Mathf.Min (MinDepth (), world.position.y + movement);
+		} else if (direction < 0 && world.position.y > MaxDepth()) {
+			position = Mathf.Max (MaxDepth (), world.position.y + movement);
+		}
+
+		world.position = new Vector3 (currentPosition.x, position, currentPosition.z);
+	}
+
+	void TakeDamage(float damage) {
+		health -= damage;
+		if (health <= 0) {
+			// TODO: loose game.
+		}
+	}
 
 	float MaxDepth() {
 		return depth + maxDepth;
@@ -24,37 +51,27 @@ public class Submarine : MonoBehaviour {
 		return depth + minDepth;
 	}
 
-	public void AdjustThrust(float newThrust) {
-		
-	}
-
-
-
-	public void AdjustDepth(int direction) {
-		var movement = Time.fixedDeltaTime * climbSpeed;
-		var currentPosition = world.position;
-
-		float position = 0;
-		if (direction > 0 && world.position.y < MinDepth()) {
-			 position = Mathf.Min (MinDepth (), world.position.y + movement);
-		} else if (direction < 0 && world.position.y > MaxDepth()) {
-			 position = Mathf.Max (MaxDepth (), world.position.y + movement);
+	void OnTriggerEnter(Collider other) {
+		var obstacle = other.GetComponent<Obstacle> ();
+		if (obstacle != null) {
+			TakeDamage (obstacle.damage);
+			var destructible = other.GetComponent<Destructible> ();
+			if (destructible != null)
+				destructible.Destroy ();
 		}
-
 	}
 
-	// Use this for initialization
+	void MoveWorldHorizontally() {
+		var movement = Time.deltaTime * thrust;
+		var currentPosition = world.position;
+		world.position = new Vector3 (currentPosition.x - movement, currentPosition.y, currentPosition.z);
+	}
+
 	void Start () {
 		depth = world.position.y;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-
-
-
-
-
-		
+		MoveWorldHorizontally ();
 	}
 }
