@@ -16,7 +16,7 @@ public class Sonar : MonoBehaviour {
 
 	public float speed = 20f;
 
-	private bool active = true;
+	public bool active = true;
 
 	private Vector3 defaultCameraPosition;
 
@@ -67,9 +67,6 @@ public class Sonar : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown (KeyCode.Q))
-			SetActive (!active);
-		
 		if (active) {
 			var movement = speed * Time.deltaTime;
 			var newPosition = LightPosition () + movement;

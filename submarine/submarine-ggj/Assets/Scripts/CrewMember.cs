@@ -74,33 +74,42 @@ public class CrewMember : MonoBehaviour {
                 // If the crew member has a tool
                 if (this.hasTool && !actualRoom.isDisabled)
                 {
-                    // The room is disabled -> repair the room
+                    // The room needs repair -> repair the room
                     // The room is the tools room, leave the tool (UseRoom)
                     // Otherwise do nothing (can't do something with a tool in hands !)
                     if (actualRoom.needsRepair)
                     {
                         lastRoutine = StartCoroutine(actualRoom.RepairRoom());
-                    } else if (actualRoom.GetRoomName().Equals(Constants.TOOLS))
+                    }
+                    else if (actualRoom.GetRoomName().Equals(Constants.TOOLS))
                     {
                         lastRoutine = StartCoroutine(actualRoom.UseRoom());
-                    } else
+                    }
+                    else
                     {
                         actualRoom.isUsed = !actualRoom.isUsed;
                     }
-                } else if (!actualRoom.needsRepair && !actualRoom.isDisabled && !this.hasTool)
+                }
+                else if (!actualRoom.needsRepair && !actualRoom.isDisabled && !this.hasTool)
                 {
-                // If the room is OK and he has no tool, just use the room
+                    // If the room is OK and he has no tool, just use the room
                     lastRoutine = StartCoroutine(actualRoom.UseRoom());
-                } else
+                }
+                else
                 {
                     actualRoom.isUsed = !actualRoom.isUsed;
                 }
             }
-        } else if (IsUsingRoom())
+        }
+        else if (IsUsingRoom())
         {
             actualRoom.isUsed = !actualRoom.isUsed;
             StartCoroutine(actualRoom.UseDoors());
             StopCoroutine(lastRoutine);
+            if (actualRoom.GetRoomName().Equals(Constants.SONAR))
+            {
+                actualRoom.sonar.SetActive(!actualRoom.sonar.active);
+            }
         }
 	}
 
