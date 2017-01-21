@@ -336,9 +336,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDepth: 10
   maxDepth: -10
-  climbSpeed: 0
-  thrust: 4
-  health: 10
+  verticalSpeed: 4
+  horizontalSpeed: 3
+  hp: 12
+  energy: 12
+  oxygen: 12
   world: {fileID: 605228200}
 --- !u!23 &733621075
 MeshRenderer:
@@ -809,6 +811,11 @@ Prefab:
     - target: {fileID: 4460425252680788, guid: 4b08028a55dd04493b2b627d81c705a2, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135545392716561098, guid: 4b08028a55dd04493b2b627d81c705a2,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b08028a55dd04493b2b627d81c705a2, type: 2}

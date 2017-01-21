@@ -5,25 +5,25 @@ using UnityEngine;
 public class Submarine : MonoBehaviour {
 
 	public float minDepth;
-
 	public float maxDepth;
 
-	public float climbSpeed;
+	public float verticalSpeed = 0.5f;
+	public float horizontalSpeed;
 
-	public float thrust;
-
-	public float health;
+	public float hp;
+	public float energy;
+	public float oxygen;
 
 	public Transform world;
 
 	float depth;
 
 	public void AdjustThrust(float multiplier) {
-		thrust = thrust * multiplier;
+		horizontalSpeed = horizontalSpeed * multiplier;
 	}
 
 	public void AdjustDepth(int direction) {
-		var movement = Time.fixedDeltaTime * climbSpeed;
+		var movement = Time.fixedDeltaTime * verticalSpeed;
 		var currentPosition = world.position;
 
 		float position = 0;
@@ -37,8 +37,8 @@ public class Submarine : MonoBehaviour {
 	}
 
 	void TakeDamage(float damage) {
-		health -= damage;
-		if (health <= 0) {
+		hp -= damage;
+		if (hp <= 0) {
 			// TODO: loose game.
 		}
 	}
@@ -62,9 +62,8 @@ public class Submarine : MonoBehaviour {
 	}
 
 	void MoveWorldHorizontally() {
-		var movement = Time.deltaTime * thrust;
-		var currentPosition = world.position;
-		world.position = new Vector3 (currentPosition.x - movement, currentPosition.y, currentPosition.z);
+		var movement = Time.deltaTime * horizontalSpeed;
+		world.Translate(new Vector3 (-movement, 0, 0));
 	}
 
 	void Start () {
@@ -72,6 +71,13 @@ public class Submarine : MonoBehaviour {
 	}
 
 	void Update () {
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			AdjustDepth (1);
+		}
+		else if (Input.GetKey (KeyCode.DownArrow)) {
+			AdjustDepth (-1);
+		}
+
 		MoveWorldHorizontally ();
 	}
 }
