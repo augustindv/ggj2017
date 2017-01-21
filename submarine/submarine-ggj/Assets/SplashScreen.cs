@@ -13,10 +13,8 @@ public class SplashScreen : MonoBehaviour {
 	Toggle activeMenuEntry;
 
 
-	public Button oneKeyboard;
-	public Button oneGamepad;
-	public Button twoKeyboardGamepad;
-	public Button twoGamepads;
+	public Button onePlayer;
+	public Button twoPlayers;
 
 	List<Button> activeButtons = new List<Button>();
 
@@ -26,20 +24,9 @@ public class SplashScreen : MonoBehaviour {
 	}
 
 	void Start () {
-		oneGamepad.gameObject.SetActive (false);
-		twoKeyboardGamepad.gameObject.SetActive (false);
-		twoGamepads.gameObject.SetActive (false);
-
-		ActivateButton (oneKeyboard);
-		int numberOfGamepads = Input.GetJoystickNames ().Length;
-		if (numberOfGamepads > 0) {
-			ActivateButton (oneGamepad);
-			ActivateButton (twoKeyboardGamepad);
-		}
-		if (numberOfGamepads > 1)
-			ActivateButton (twoGamepads);
-
-		activeMenuEntry = new Toggle (activeButtons.Count, 0);
+		ActivateButton (onePlayer);
+		ActivateButton (twoPlayers);
+		activeMenuEntry = new Toggle (2, 0);
 	}
 
 	void Update () {
@@ -53,20 +40,16 @@ public class SplashScreen : MonoBehaviour {
 		EventSystem.current.SetSelectedGameObject(button.gameObject, new BaseEventData(EventSystem.current));
 	}
 
-	public void StartGameOnePlayer(bool gamepadPlayerOne) {
-		InputMode one = gamepadPlayerOne ? InputMode.GAMEPAD : InputMode.KEYBOARD;
-		StartGame (1, one, InputMode.KEYBOARD);
+	public void StartGameOnePlayer() {
+		StartGame (1);
 	}
 
-	public void StartGameTwoPlayer(bool gamepadPlayerOne) {
-		InputMode one = gamepadPlayerOne ? InputMode.GAMEPAD : InputMode.KEYBOARD;
-		StartGame (2, one, InputMode.GAMEPAD);
+	public void StartGameTwoPlayer() {
+		StartGame (2);
 	}
 
-	public void StartGame(int numberOfPlayers, InputMode inputPlayerOne, InputMode inputPlayerTwo) {
+	public void StartGame(int numberOfPlayers) {
 		GlobalSettings.Instance ().numberOfPlayers = numberOfPlayers;
-		GlobalSettings.Instance ().inputPlayerOne = inputPlayerOne;
-		GlobalSettings.Instance ().inputPlayerTwo = inputPlayerTwo;
 		SceneManager.LoadScene ("Level");
 	}
 }

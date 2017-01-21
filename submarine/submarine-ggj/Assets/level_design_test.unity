@@ -154,24 +154,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &675439461 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1933415026547044, guid: 76ab71dccf9674217ad836f9c4ad58fa,
-    type: 2}
-  m_PrefabInternal: {fileID: 1352868897}
---- !u!114 &675439462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 675439461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f636b308e414e1a8aab3b7cc595803, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  submarine: {fileID: 1352868898}
-  world: {fileID: 1352868901}
 --- !u!1001 &1352868897
 Prefab:
   m_ObjectHideFlags: 0
@@ -211,44 +193,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114281973850787928, guid: 76ab71dccf9674217ad836f9c4ad58fa,
-        type: 2}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 675439462}
-    m_RemovedComponents:
-    - {fileID: 114218498407466662, guid: 76ab71dccf9674217ad836f9c4ad58fa, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76ab71dccf9674217ad836f9c4ad58fa, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1352868898 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114094698311274578, guid: 76ab71dccf9674217ad836f9c4ad58fa,
-    type: 2}
-  m_PrefabInternal: {fileID: 1352868897}
-  m_Script: {fileID: 11500000, guid: 68bfc88d1647b46efb05627d4fcbe9a7, type: 3}
---- !u!1 &1352868899 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1949775830913108, guid: 76ab71dccf9674217ad836f9c4ad58fa,
-    type: 2}
-  m_PrefabInternal: {fileID: 1352868897}
---- !u!1 &1352868900 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1339213629621080, guid: 76ab71dccf9674217ad836f9c4ad58fa,
-    type: 2}
-  m_PrefabInternal: {fileID: 1352868897}
---- !u!114 &1352868901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1352868899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e299c7aae826e461b90b0902b78979f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelSegments:
-  - {fileID: 1794142118984584, guid: d681f6ab17a6d4cad98ec4974e07b546, type: 2}
-  nextSegment: {fileID: 1352868900}
-  submarine: {fileID: 1352868898}
-  segmentLength: 1000
