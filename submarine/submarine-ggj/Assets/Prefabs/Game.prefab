@@ -494,7 +494,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4119307918703522}
-  - component: {fileID: 114218498407466662}
+  - component: {fileID: 114365565407746992}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -529,6 +529,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4310029897369044}
+  - component: {fileID: 114511463165546066}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -1866,17 +1867,30 @@ MonoBehaviour:
   top: 50
   bottom: -50
   verticalSpeed: 4
-  horizontalSpeed: 30
+  horizontalSpeed: 0
   hp: 12
   energy: 12
   oxygen: 12
   world: {fileID: 4310029897369044}
---- !u!114 &114218498407466662
+--- !u!114 &114365565407746992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1933415026547044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f636b308e414e1a8aab3b7cc595803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submarine: {fileID: 114094698311274578}
+  world: {fileID: 114511463165546066}
+--- !u!114 &114511463165546066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949775830913108}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e299c7aae826e461b90b0902b78979f2, type: 3}
@@ -1885,7 +1899,6 @@ MonoBehaviour:
   levelSegments:
   - {fileID: 1794142118984584, guid: d681f6ab17a6d4cad98ec4974e07b546, type: 2}
   nextSegment: {fileID: 1339213629621080}
-  world: {fileID: 1949775830913108}
   submarine: {fileID: 114094698311274578}
   segmentLength: 1000
 --- !u!114 &114527022837024806
@@ -1916,7 +1929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634b21bffdecc4eb9a2de0e4f0365259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 11
 --- !u!114 &114898397552569790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1954,7 +1967,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1946923363418920}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.38
   m_Height: 1.82

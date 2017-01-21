@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game : MonoBehaviour {
+public class WorldManager : MonoBehaviour {
 
 	public GameObject[] levelSegments;
 
 	public GameObject nextSegment = null;
-
-	public GameObject world;
 
 	public Submarine submarine;
 
@@ -16,15 +14,21 @@ public class Game : MonoBehaviour {
 
 	float submarineLength;
 
+	// Compensate for moving by one segment right at the start.
+	int travelledSegments = -1;
+
 	GameObject currentSegment = null;
 
 	GameObject lastSegment = null;
 
 	GameObject PickNextSegment() {
-		return levelSegments [0];
+		var selectedId = Random.Range (0, levelSegments.Length);
+		return levelSegments [selectedId];
 	}
 
 	void MoveToNextSegment() {
+		travelledSegments += 1;
+
 		if (lastSegment != null)
 			Destroy (lastSegment);
 
@@ -34,7 +38,7 @@ public class Game : MonoBehaviour {
 		nextSegment = Instantiate (PickNextSegment ());
 		var offset = currentSegment.transform.position.x + segmentLength;
 		nextSegment.transform.Translate (new Vector2 (offset, 0));
-		nextSegment.transform.parent = world.transform;
+		nextSegment.transform.parent = gameObject.transform;
 	}
 
 	void Start () {

@@ -37,9 +37,6 @@ public class Submarine : MonoBehaviour {
 
 	void TakeDamage(float damage) {
 		hp -= damage;
-		if (hp <= 0) {
-			// TODO: loose game.
-		}
 	}
 
 	float Top() {
@@ -71,5 +68,8 @@ public class Submarine : MonoBehaviour {
 
 	void Update () {
 		MoveWorldHorizontally ();
+	}
+
+	public void Die() {
 	}
 }
