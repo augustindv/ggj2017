@@ -213,30 +213,6 @@ Prefab:
       propertyPath: submarine
       value: 
       objectReference: {fileID: 2027560494}
-    - target: {fileID: 4004437149602970, guid: 41b5e13bd266ab241b78f64243b6601f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4004437149602970, guid: 41b5e13bd266ab241b78f64243b6601f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257667794638864, guid: 41b5e13bd266ab241b78f64243b6601f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4990988557149924, guid: 41b5e13bd266ab241b78f64243b6601f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257667794638864, guid: 41b5e13bd266ab241b78f64243b6601f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.024
-      objectReference: {fileID: 0}
-    - target: {fileID: 4990988557149924, guid: 41b5e13bd266ab241b78f64243b6601f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.025
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41b5e13bd266ab241b78f64243b6601f, type: 2}
   m_IsPrefabParent: 0
@@ -911,14 +887,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2027560493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b52bf6d49c83749a93dc1ab34717e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 68bfc88d1647b46efb05627d4fcbe9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  horizontalSpeed: 0
+  top: 0
+  bottom: 0
   verticalSpeed: 0.5
+  horizontalSpeed: 0
+  hp: 0
   energy: 0
   oxygen: 0
+  world: {fileID: 0}
 --- !u!23 &2027560496
 MeshRenderer:
   m_ObjectHideFlags: 0
