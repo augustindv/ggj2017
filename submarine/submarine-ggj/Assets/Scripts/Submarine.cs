@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Submarine : MonoBehaviour {
 
-	public float minDepth;
-	public float maxDepth;
+	public float top;
+	public float bottom;
 
 	public float verticalSpeed = 0.5f;
 	public float horizontalSpeed;
@@ -26,13 +26,8 @@ public class Submarine : MonoBehaviour {
 		var movement = Time.fixedDeltaTime * verticalSpeed;
 		var currentPosition = world.position;
 
-		float position = 0;
-		if (direction > 0 && world.position.y < MinDepth()) {
-			position = Mathf.Min (MinDepth (), world.position.y + movement);
-		} else if (direction < 0 && world.position.y > MaxDepth()) {
-			position = Mathf.Max (MaxDepth (), world.position.y + movement);
-		}
-
+		float position = world.position.y - movement * direction;
+		position = Mathf.Clamp (position, Bottom (), Top ());
 		world.position = new Vector3 (currentPosition.x, position, currentPosition.z);
 	}
 
@@ -43,12 +38,12 @@ public class Submarine : MonoBehaviour {
 		}
 	}
 
-	float MaxDepth() {
-		return depth + maxDepth;
+	float Top() {
+		return depth + top;
 	}
 
-	float MinDepth() {
-		return depth + minDepth;
+	float Bottom() {
+		return depth + bottom;
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -71,13 +66,6 @@ public class Submarine : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKey (KeyCode.UpArrow)) {
-			AdjustDepth (1);
-		}
-		else if (Input.GetKey (KeyCode.DownArrow)) {
-			AdjustDepth (-1);
-		}
-
 		MoveWorldHorizontally ();
 	}
 }
