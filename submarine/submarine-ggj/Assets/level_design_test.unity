@@ -2696,7 +2696,44 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114094698311274578, guid: 76ab71dccf9674217ad836f9c4ad58fa,
+        type: 2}
+      propertyPath: energy
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114094698311274578, guid: 76ab71dccf9674217ad836f9c4ad58fa,
+        type: 2}
+      propertyPath: oxygen
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 136825762827526704, guid: 76ab71dccf9674217ad836f9c4ad58fa,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136825762827526704, guid: 76ab71dccf9674217ad836f9c4ad58fa,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136825762827526704, guid: 76ab71dccf9674217ad836f9c4ad58fa,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 136825762827526704, guid: 76ab71dccf9674217ad836f9c4ad58fa,
+        type: 2}
+      propertyPath: m_Height
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 23750497463161256, guid: 76ab71dccf9674217ad836f9c4ad58fa,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 33706086544458114, guid: 76ab71dccf9674217ad836f9c4ad58fa, type: 2}
+    - {fileID: 23750497463161256, guid: 76ab71dccf9674217ad836f9c4ad58fa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 76ab71dccf9674217ad836f9c4ad58fa, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &728307903 stripped

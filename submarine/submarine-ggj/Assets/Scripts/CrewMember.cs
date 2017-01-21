@@ -128,7 +128,7 @@ public class CrewMember : MonoBehaviour {
             var movement = new Vector3(horizontal * CurrentSpeed(), vertical * CurrentSpeed(), 0);
 
             rigidBody.MovePosition(currentPosition + movement);
-        } else if (IsControllingSub())
+		} else if (IsControllingSub() && actualRoom.submarine.HasEnergy(1))
         {
 			actualRoom.submarine.AdjustDepth(direction: vertical);
         }

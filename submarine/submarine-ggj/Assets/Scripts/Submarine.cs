@@ -8,6 +8,10 @@ public class Submarine : MonoBehaviour {
 	public static readonly float ENERGY_MAX = 100;
 	public static readonly float OXYGEN_MAX = 100;
 
+	public float oxygenUsedPerSecond = 0.25f;
+	public float damagePerSecondForMissingOxygen = 1.0f;
+	public float sonarEnergyCost = 2.0f;
+
 	public float top;
 	public float bottom;
 
@@ -21,6 +25,10 @@ public class Submarine : MonoBehaviour {
 	public Transform world;
 
 	float depth;
+
+	public bool HasEnergy(float minimum) {
+		return energy >= minimum;
+	}
 
 	public void AdjustThrust(float multiplier) {
 		horizontalSpeed = horizontalSpeed * multiplier;
@@ -64,6 +72,16 @@ public class Submarine : MonoBehaviour {
 
 	void Start () {
 		depth = world.position.y;
+		StartCoroutine (CheckOxygen ());
+	}
+
+	IEnumerator CheckOxygen() {
+		while (true) {
+			oxygen = Mathf.Max (0.0f, oxygen - oxygenUsedPerSecond);
+			if (oxygen < 1.0f)
+				TakeDamage (damagePerSecondForMissingOxygen);
+			yield return new WaitForSeconds(1.0f);
+		}
 	}
 
 	void Update () {
