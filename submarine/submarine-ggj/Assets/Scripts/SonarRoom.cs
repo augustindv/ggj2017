@@ -18,6 +18,7 @@ public class SonarRoom : Room {
 
     public override IEnumerator UseRoom()
     {
+        StartCoroutine(UseDoors());
         yield return null;
     }
 }

@@ -16,6 +16,7 @@ public class ControlsRoom : Room {
 
     public override IEnumerator UseRoom()
     {
+        StartCoroutine(UseDoors());
         yield return null;
     }
 }

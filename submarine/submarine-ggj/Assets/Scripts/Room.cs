@@ -15,14 +15,14 @@ public abstract class Room : MonoBehaviour {
     // Boolean to know if the room is disabled because not enough ressource
     public bool isDisabled;
     // Boolean to know if the doors are closed
-    public bool doorsClosed;
+    public bool doorsClosed = true;
     public Submarine submarine;
     [HideInInspector]
     public string roomName;
     [HideInInspector]
     public CrewMember crewMember;
 
-    public GameObject doors;
+    public GameObject[] doors;
 
     public float timeElapsedRepair = 2;
     public float durationRepair = 6f;
@@ -83,21 +83,27 @@ public abstract class Room : MonoBehaviour {
         if (doorsClosed)
         {
             doorsClosed = !doorsClosed;
-            while (Mathf.Round(doors.transform.localScale.y * 100f) / 100f > 0 && !doorsClosed)
+            while (Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f > 0 && !doorsClosed)
             {
                 float timeProgressed = (Time.time - startTime) / lerpTime;
-                Vector3 tmpVec = Vector3.Lerp(doors.transform.localScale, new Vector3(1, 0, 1), timeProgressed);
-                doors.transform.localScale = new Vector3(tmpVec.x, Mathf.Round(tmpVec.y * 100f) / 100f, 1);
+                foreach (var door in doors)
+                {
+                    Vector3 tmpVec = Vector3.Lerp(door.transform.localScale, new Vector3(1, 0, 1), timeProgressed);
+                    door.transform.localScale = new Vector3(tmpVec.x, Mathf.Round(tmpVec.y * 100f) / 100f, 1);
+                }
                 yield return new WaitForFixedUpdate();
             }
         } else
         {
             doorsClosed = !doorsClosed;
-            while (Mathf.Round(doors.transform.localScale.y * 100f) / 100f < 1 && doorsClosed)
+            while (Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f < 1 && doorsClosed)
             {
                 float timeProgressed = (Time.time - startTime) / lerpTime;
-                Vector3 tmpVec = Vector3.Lerp(doors.transform.localScale, new Vector3(1, 1, 1), timeProgressed);
-                doors.transform.localScale = new Vector3(tmpVec.x, Mathf.Round(tmpVec.y * 100f) / 100f, 1);
+                foreach (var door in doors)
+                {
+                    Vector3 tmpVec = Vector3.Lerp(door.transform.localScale, new Vector3(1, 1, 1), timeProgressed);
+                    door.transform.localScale = new Vector3(tmpVec.x, Mathf.Round(tmpVec.y * 100f) / 100f, 1);
+                }
                 yield return new WaitForFixedUpdate();
             }
         }
