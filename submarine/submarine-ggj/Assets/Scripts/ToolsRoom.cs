@@ -20,6 +20,7 @@ public class ToolsRoom : Room {
 
     public override IEnumerator UseRoom()
     {
+        StartCoroutine(UseDoors());
         this.crewMember.hasTool = !this.crewMember.hasTool;
         this.isUsed = !this.isUsed;
         yield return null;
