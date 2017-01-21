@@ -18,6 +18,6 @@ public class SplashScreen : MonoBehaviour {
 
 	public void StartGame(int numberOfPlayers) {
 		GlobalSettings.Instance ().numberOfPlayers = numberOfPlayers;
-		SceneManager.LoadScene ("level_with_ui");
+		SceneManager.LoadScene ("level_design_test");
 	}
 }

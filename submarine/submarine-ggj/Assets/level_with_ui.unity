@@ -1186,6 +1186,7 @@ MonoBehaviour:
   isDisabled: 0
   doorsClosed: 0
   submarine: {fileID: 548791659}
+  sonar: {fileID: 0}
   roomName: 
   crewMember: {fileID: 0}
   doors:
@@ -1537,6 +1538,7 @@ MonoBehaviour:
   cameraZoomSpeed: 1
   range: 40
   speed: 20
+  active: 1
 --- !u!1 &512509815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,6 +3034,7 @@ MonoBehaviour:
   isDisabled: 0
   doorsClosed: 0
   submarine: {fileID: 548791659}
+  sonar: {fileID: 0}
   roomName: energy
   crewMember: {fileID: 0}
   doors:
@@ -3455,6 +3458,7 @@ MonoBehaviour:
   isDisabled: 0
   doorsClosed: 0
   submarine: {fileID: 548791659}
+  sonar: {fileID: 0}
   roomName: 
   crewMember: {fileID: 0}
   doors: []
@@ -3824,6 +3828,7 @@ MonoBehaviour:
   isDisabled: 0
   doorsClosed: 0
   submarine: {fileID: 548791659}
+  sonar: {fileID: 0}
   roomName: 
   crewMember: {fileID: 0}
   doors:
@@ -4035,32 +4040,32 @@ Prefab:
     - target: {fileID: 224465723723737810, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224465723723737810, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224331600423663934, guid: a12b33273ba4a43e9b9a78b714bb34bd,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224331600423663934, guid: a12b33273ba4a43e9b9a78b714bb34bd,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224983256392607846, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224983256392607846, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224331600423663934, guid: a12b33273ba4a43e9b9a78b714bb34bd,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224331600423663934, guid: a12b33273ba4a43e9b9a78b714bb34bd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a12b33273ba4a43e9b9a78b714bb34bd, type: 2}
@@ -4125,6 +4130,7 @@ MonoBehaviour:
   isDisabled: 0
   doorsClosed: 0
   submarine: {fileID: 548791659}
+  sonar: {fileID: 0}
   roomName: 
   crewMember: {fileID: 0}
   doors:

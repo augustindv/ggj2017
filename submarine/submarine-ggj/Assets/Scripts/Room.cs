@@ -15,8 +15,9 @@ public abstract class Room : MonoBehaviour {
     // Boolean to know if the room is disabled because not enough ressource
     public bool isDisabled;
     // Boolean to know if the doors are closed
-    public bool doorsClosed = true;
+    public bool doorsClosed = false;
     public Submarine submarine;
+    public Sonar sonar;
     [HideInInspector]
     public string roomName;
     [HideInInspector]

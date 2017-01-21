@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SonarRoom : Room {
 
+    public float duration = 5;
+
     // Use this for initialization
     void Start () {
         this.collider = GetComponent<Collider>();
@@ -19,6 +21,10 @@ public class SonarRoom : Room {
     public override IEnumerator UseRoom()
     {
         StartCoroutine(UseDoors());
-        yield return null;
+        sonar.SetActive(!sonar.active);
+        yield return new WaitForSeconds(duration);
+        this.isUsed = !this.isUsed;
+        sonar.SetActive(!sonar.active);
+        StartCoroutine(UseDoors());
     }
 }
