@@ -7,7 +7,8 @@ public class Submarine : MonoBehaviour {
     // HP of the submarine
     public float hp;
     // Speed of the submarine
-    public float speed;
+    public float horizontalSpeed;
+    public float verticalSpeed = 0.5f;
     // Energy of the submarine
     public float energy;
     // Oxygen of the submarine
@@ -26,6 +27,6 @@ public class Submarine : MonoBehaviour {
     // Move up and down submarine
     public void Move(float movement)
     {
-        transform.Translate(new Vector2(movement, 0));
+        transform.Translate(new Vector2(movement * verticalSpeed, 0));
     }
 }

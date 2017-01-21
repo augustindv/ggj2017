@@ -4,23 +4,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OxygenRoom : Room {
+    private static string ROOM_NAME = "oxygen";
 
-    public Submarine submarine;
     // Oxygen to be added over time
     public float oxygenAdded;
+    public float duration;
+
+    private float localTime;
 
     // Use this for initialization
     void Start() {
         this.collider = GetComponent<Collider>();
+        this.roomName = "oxygen";
     }
-	
-	// Update is called once per frame
-	void Update() {
+
+    // Update is called once per frame
+    void Update() {
 		
 	}
 
-    public override void useRoom()
+    public override IEnumerator useRoom()
     {
-        submarine.oxygen += oxygenAdded;
+        localTime = 0;
+        while (localTime < duration)
+        {
+            localTime += Time.deltaTime;
+            submarine.oxygen += oxygenAdded;
+        }
+
+        yield return null;
     }
 }

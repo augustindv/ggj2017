@@ -10,6 +10,7 @@ public class ToolsRoom : Room {
 	// Use this for initialization
 	void Start () {
         this.collider = GetComponent<Collider>();
+        this.roomName = "tools";
     }
 	
 	// Update is called once per frame
@@ -17,7 +18,8 @@ public class ToolsRoom : Room {
 		
 	}
 
-    public override void useRoom()
+    public override IEnumerator useRoom()
     {
+        yield return null;
     }
 }
