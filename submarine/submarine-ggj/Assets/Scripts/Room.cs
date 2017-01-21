@@ -76,14 +76,16 @@ public abstract class Room : MonoBehaviour {
 
     public IEnumerator UseDoors()
     {
+		if (doors.Length == 0)
+			yield return null;
+		
         float lerpTime = 1;
         float startTime = Time.time;
-        float endTime = startTime + lerpTime;
 
         if (doorsClosed)
         {
             doorsClosed = !doorsClosed;
-            while (Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f > 0 && !doorsClosed)
+			while (doors[0] != null && Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f > 0 && !doorsClosed)
             {
                 float timeProgressed = (Time.time - startTime) / lerpTime;
                 foreach (var door in doors)
@@ -96,7 +98,7 @@ public abstract class Room : MonoBehaviour {
         } else
         {
             doorsClosed = !doorsClosed;
-            while (Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f < 1 && doorsClosed)
+			while (doors[0] != null && Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f < 1 && doorsClosed)
             {
                 float timeProgressed = (Time.time - startTime) / lerpTime;
                 foreach (var door in doors)

@@ -1725,7 +1725,7 @@ MonoBehaviour:
   bottom: -50
   verticalSpeed: 4
   horizontalSpeed: 5
-  hp: 100
+  hp: 1
   energy: 12
   oxygen: 12
   world: {fileID: 106452249}
@@ -1819,6 +1819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   submarine: {fileID: 548791659}
   world: {fileID: 106452248}
+  gameOverMenu: {fileID: 1560433734}
 --- !u!4 &549645439
 Transform:
   m_ObjectHideFlags: 0
@@ -4034,36 +4035,42 @@ Prefab:
     - target: {fileID: 224465723723737810, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224465723723737810, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224331600423663934, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224331600423663934, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224983256392607846, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224983256392607846, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a12b33273ba4a43e9b9a78b714bb34bd, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1560433734 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114476607142624012, guid: a12b33273ba4a43e9b9a78b714bb34bd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1560433731}
+  m_Script: {fileID: 11500000, guid: a7384947f2a50471e8f4bc07a3f661c6, type: 3}
 --- !u!1 &1583771938
 GameObject:
   m_ObjectHideFlags: 0

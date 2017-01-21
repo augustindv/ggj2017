@@ -14,6 +14,8 @@ public class Game : MonoBehaviour {
 
 	public WorldManager world;
 
+	public GameOverMenu gameOverMenu;
+
 	GameMode gameMode = GameMode.RUNNING;
 
 	public GameMode CurrentGameMode() {
@@ -33,7 +35,7 @@ public class Game : MonoBehaviour {
 	}
 
 	void ShowHighscore() {
-		
+		gameOverMenu.ShowHighscore (DistanceTravelled ());
 	}
 
 	public void PauseGame () {

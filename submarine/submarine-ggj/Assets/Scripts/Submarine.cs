@@ -71,5 +71,6 @@ public class Submarine : MonoBehaviour {
 	}
 
 	public void Die() {
+		horizontalSpeed = 0;
 	}
 }

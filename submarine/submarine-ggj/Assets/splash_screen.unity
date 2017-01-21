@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61702535}
   - component: {fileID: 61702536}
+  - component: {fileID: 61702537}
   m_Layer: 0
   m_Name: SplashScreen
   m_TagString: Untagged
@@ -131,8 +132,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3b89d3eb31d45d98947f0e0c6bf660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onePlayer: {fileID: 1406391799}
-  twoPlayers: {fileID: 1596901462}
+--- !u!114 &61702537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 61702534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee6fc9a1b1e432590a48420c153cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1406391799}
+  - {fileID: 1596901462}
 --- !u!1 &376817483
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +379,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -488,7 +501,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
