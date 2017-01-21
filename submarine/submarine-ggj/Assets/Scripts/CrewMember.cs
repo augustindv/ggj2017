@@ -16,6 +16,8 @@ public class CrewMember : MonoBehaviour {
 
     private Coroutine lastRoutine = null;
 
+    public bool hasTool;
+
     void Start () {
 		rigidBody = GetComponentInChildren<Rigidbody> ();
 	}
@@ -49,7 +51,7 @@ public class CrewMember : MonoBehaviour {
 
     bool IsControllingSub()
     {
-        return actualRoom != null ? actualRoom.getRoomName().Equals("controls") && actualRoom.isUsed : false;
+        return actualRoom != null ? actualRoom.GetRoomName().Equals("controls") && actualRoom.isUsed : false;
     }
 
 	bool IsOnLadder() {
@@ -63,16 +65,41 @@ public class CrewMember : MonoBehaviour {
 	}
 
 	public void Act() {
-		if (actualRoom != null && !IsUsingRoom())
+        if (actualRoom != null && !IsUsingRoom())
         {
             actualRoom.isUsed = !actualRoom.isUsed;
+            // Using the room
             if (actualRoom.isUsed)
             {
-                lastRoutine = StartCoroutine(actualRoom.useRoom());
+                // If the crew member has a tool
+                if (this.hasTool && !actualRoom.isDisabled)
+                {
+                    // The room is disabled -> repair the room
+                    // The room is the tools room, leave the tool (UseRoom)
+                    // Otherwise do nothing (can't do something with a tool in hands !)
+                    if (actualRoom.needsRepair)
+                    {
+                        lastRoutine = StartCoroutine(actualRoom.RepairRoom());
+                    } else if (actualRoom.GetRoomName().Equals(Constants.TOOLS))
+                    {
+                        lastRoutine = StartCoroutine(actualRoom.UseRoom());
+                    } else
+                    {
+                        actualRoom.isUsed = !actualRoom.isUsed;
+                    }
+                } else if (!actualRoom.needsRepair && !actualRoom.isDisabled && !this.hasTool)
+                {
+                // If the room is OK and he has no tool, just use the room
+                    lastRoutine = StartCoroutine(actualRoom.UseRoom());
+                } else
+                {
+                    actualRoom.isUsed = !actualRoom.isUsed;
+                }
             }
         } else if (IsUsingRoom())
         {
             actualRoom.isUsed = !actualRoom.isUsed;
+            StartCoroutine(actualRoom.UseDoors());
             StopCoroutine(lastRoutine);
         }
 	}

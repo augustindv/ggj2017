@@ -7,14 +7,11 @@ public class EnergyRoom : Room {
     // Energy to be added over time
     public float energyAdded;
     public float timeElapsed = 2;
-    public float duration = 6f;
-
-    private float localTime;
 
     // Use this for initialization
     void Start () {
         this.collider = GetComponent<Collider>();
-        this.roomName = "energy";
+        this.roomName = Constants.ENERGY;
     }
 
     // Update is called once per frame
@@ -22,17 +19,16 @@ public class EnergyRoom : Room {
 		
 	}
 
-    public override IEnumerator useRoom()
+    public override IEnumerator UseRoom()
     {
-        localTime = 0;
-        while (localTime < duration)
+        UseDoors();
+        while (submarine.energy < Submarine.ENERGY_MAX)
         {
-            localTime += timeElapsed;
-            submarine.energy += energyAdded;
             yield return new WaitForSeconds(timeElapsed);
+            submarine.energy += energyAdded;
         }
         this.isUsed = !this.isUsed;
-
+        UseDoors();
         yield return null;
     }
 }

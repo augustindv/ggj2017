@@ -7,14 +7,14 @@ public class ControlsRoom : Room {
 	// Use this for initialization
 	void Start () {
         this.collider = GetComponent<Collider>();
-        this.roomName = "controls";
+        this.roomName = Constants.CONTROLS;
     }
 
     // Update is called once per frame
     void FixedUpdate () {
     }
 
-    public override IEnumerator useRoom()
+    public override IEnumerator UseRoom()
     {
         yield return null;
     }

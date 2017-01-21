@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1749704055215440}
+  m_RootGameObject: {fileID: 1567200160590092}
   m_IsPrefabParent: 1
---- !u!1 &1749704055215440
+--- !u!1 &1567200160590092
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4116874484379986}
-  - component: {fileID: 33025089694912178}
-  - component: {fileID: 65605211755602310}
-  - component: {fileID: 23443290588037914}
-  - component: {fileID: 114149324499540504}
+  - component: {fileID: 4271402285258806}
+  - component: {fileID: 33210785773354238}
+  - component: {fileID: 65502208009762850}
+  - component: {fileID: 23836405560852338}
+  - component: {fileID: 114584565512159668}
   m_Layer: 0
-  m_Name: EnergyRoom
+  m_Name: ToolsRoom
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4116874484379986
+--- !u!4 &4271402285258806
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1749704055215440}
+  m_GameObject: {fileID: 1567200160590092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23443290588037914
+--- !u!23 &23836405560852338
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1749704055215440}
+  m_GameObject: {fileID: 1567200160590092}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -74,46 +74,42 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33025089694912178
+--- !u!33 &33210785773354238
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1749704055215440}
+  m_GameObject: {fileID: 1567200160590092}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65605211755602310
+--- !u!65 &65502208009762850
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1749704055215440}
+  m_GameObject: {fileID: 1567200160590092}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114149324499540504
+--- !u!114 &114584565512159668
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1749704055215440}
+  m_GameObject: {fileID: 1567200160590092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b45b90549bc6c7498d777a36d98be35, type: 3}
+  m_Script: {fileID: 11500000, guid: 4823b13d4b8e2f34eaf0bde1161bc3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 65605211755602310}
+  collider: {fileID: 0}
   isOccupied: 0
   isUsed: 0
-  needsRepair: 1
   isDisabled: 0
   submarine: {fileID: 0}
-  roomName: energy
+  roomName: 
   crewMember: {fileID: 0}
   timeElapsedRepair: 2
   durationRepair: 6
-  energyAdded: 20
-  timeElapsed: 2
-  duration: 10

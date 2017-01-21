@@ -8,14 +8,11 @@ public class OxygenRoom : Room {
     // Oxygen to be added over time
     public float oxygenAdded = 1f;
     public float timeElapsed = 2;
-    public float duration = 6f;
-
-    private float localTime;
 
     // Use this for initialization
     void Start() {
         this.collider = GetComponent<Collider>();
-        this.roomName = "oxygen";
+        this.roomName = Constants.OXYGEN;
     }
 
     // Update is called once per frame
@@ -23,17 +20,16 @@ public class OxygenRoom : Room {
 		
 	}
 
-    public override IEnumerator useRoom()
+    public override IEnumerator UseRoom()
     {
-        localTime = 0;
-        while (localTime < duration)
+        StartCoroutine(UseDoors());
+        while (submarine.oxygen < Submarine.OXYGEN_MAX)
         {
-            localTime += timeElapsed;
-            submarine.oxygen += oxygenAdded;
             yield return new WaitForSeconds(timeElapsed);
+            submarine.oxygen += oxygenAdded;
         }
         this.isUsed = !this.isUsed;
-
+        StartCoroutine(UseDoors());
         yield return null;
     }
 }

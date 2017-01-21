@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Submarine : MonoBehaviour {
 
+    public static readonly float HP_MAX = 100;
+    public static readonly float ENERGY_MAX = 100;
+    public static readonly float OXYGEN_MAX = 100;
+
     // HP of the submarine
     public float hp;
     // Speed of the submarine
