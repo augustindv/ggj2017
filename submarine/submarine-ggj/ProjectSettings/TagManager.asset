@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ladder
   - Crew
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - Crew
-  - 
+  - Submarine
   - 
   - 
   - 
