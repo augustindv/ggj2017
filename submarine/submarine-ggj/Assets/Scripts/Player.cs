@@ -31,52 +31,29 @@ public class Toggle {
 	}
 }
 
-public enum PlayerId { ONE, TWO }
-
 public class Player : MonoBehaviour
 {
 	public Game game;
 
 	public CrewMember[] crewMembers;
 
-	private Dictionary<PlayerId, Toggle> activeCrewMember = new Dictionary<PlayerId, Toggle>();
+	Toggle activeCrewMember;
 
-	private string PREFIX_P1 = "P1_";
-
-	private string PREFIX_P2 = "P2_";
-
-	private bool ButtonDown(string prefix, string button) {
-		return Input.GetButtonDown(prefix + button);
+	private bool ButtonDown(string button) {
+		return Input.GetButtonDown(button);
 	}
 
-	private float Axis(string prefix, string axis) {
-		return Input.GetAxis (prefix + axis);
+	private float Axis(string axis) {
+		return Input.GetAxis (axis);
 	}
 
 	void Start () {
-		activeCrewMember[PlayerId.ONE] = new Toggle (crewMembers.Length, 0);
-		activeCrewMember[PlayerId.TWO] = new Toggle (crewMembers.Length, 1);
+		activeCrewMember = new Toggle (crewMembers.Length, 0);
 	}
 
-	CrewMember ActiveCrewMember (PlayerId playerId)
+	CrewMember ActiveCrewMember ()
 	{
-		return crewMembers [activeCrewMember[playerId].Current()];
-	}
-
-	void NextCrewMember(PlayerId playerId) {
-		activeCrewMember [playerId].Next ();
-		if (GlobalSettings.Instance ().numberOfPlayers > 1) {
-			if (ActiveCrewMember(PlayerId.TWO) == ActiveCrewMember(PlayerId.TWO))
-				activeCrewMember [playerId].Next ();
-		}
-	}
-
-	void PreviousCrewMember(PlayerId playerId) {
-		activeCrewMember [playerId].Previous ();
-		if (GlobalSettings.Instance ().numberOfPlayers > 1) {
-			if (ActiveCrewMember(PlayerId.TWO) == ActiveCrewMember(PlayerId.TWO))
-				activeCrewMember [playerId].Previous ();
-		}
+		return crewMembers [activeCrewMember.Current()];
 	}
 
 	void Update () {
@@ -95,46 +72,40 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	void ProcessInputForPlayer(PlayerId playerId, string prefix) {
+	void FixedUpdate ()
+	{
 		if (game.CurrentGameMode () == GameMode.RUNNING) {
-			if (ButtonDown(prefix, "Next"))
-				NextCrewMember(playerId);
-			else if (ButtonDown(prefix, "Prev"))
-				PreviousCrewMember (playerId);
-			else if (ButtonDown(prefix, "Fire1"))
-				PerformAction (playerId);
+			if (ButtonDown("Next"))
+				activeCrewMember.Next ();
+			else if (ButtonDown("Prev"))
+				activeCrewMember.Previous ();
+			else if (ButtonDown("Fire1"))
+				PerformAction ();
 			else {
 				int horizontal = 0;
-				if (Axis(prefix, "Horizontal") > 0)
+				if (Axis("Horizontal") > 0)
 					horizontal = 1;
-				else if (Axis(prefix, "Horizontal") < 0)
+				else if (Axis("Horizontal") < 0)
 					horizontal = -1;
 
 				int vertical = 0;
-				if (Axis(prefix, "Vertical") > 0)
+				if (Axis("Vertical") > 0)
 					vertical = 1;
-				else if (Axis(prefix, "Vertical") < 0)
+				else if (Axis("Vertical") < 0)
 					vertical = -1;
 
-				Move (horizontal, vertical, playerId);
+				Move (horizontal, vertical);
 			}
 		}
 	}
 
-	void FixedUpdate ()
+	void PerformAction ()
 	{
-		ProcessInputForPlayer (PlayerId.ONE, PREFIX_P1);
-		if (GlobalSettings.Instance().numberOfPlayers > 1)
-			ProcessInputForPlayer (PlayerId.TWO, PREFIX_P2);
+		ActiveCrewMember ().Act ();
 	}
 
-	void PerformAction (PlayerId playerId)
+	void Move (int horizontal, int vertical)
 	{
-		ActiveCrewMember (playerId).Act ();
-	}
-
-	void Move (int horizontal, int vertical, PlayerId playerId)
-	{
-		ActiveCrewMember (playerId).Move (horizontal, vertical);
+		ActiveCrewMember ().Move (horizontal, vertical);
 	}
 }
