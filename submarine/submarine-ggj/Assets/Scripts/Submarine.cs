@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Submarine : MonoBehaviour {
 
+	public AudioSource audioSource;
+	public AudioClip hit;
+	public AudioClip roomDestroyed;
+
 	public static readonly float HP_MAX = 100;
 	public static readonly float ENERGY_MAX = 100;
 	public static readonly float OXYGEN_MAX = 100;
@@ -48,9 +52,10 @@ public class Submarine : MonoBehaviour {
 
 	void TakeDamage(float damage) {
 		hp -= damage;
-        float random = Random.Range(0, 100);
+		float random = Random.Range(0, 100);
         if (random <= CHANCE_DESTROY)
         {
+			audioSource.PlayOneShot (roomDestroyed);
             roomsDestroyable[Random.Range(0, roomsDestroyable.Length - 1)].needsRepair = true;
         }
     }
@@ -66,6 +71,7 @@ public class Submarine : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		var obstacle = other.GetComponent<Obstacle> ();
 		if (obstacle != null) {
+			audioSource.PlayOneShot (hit);
 			TakeDamage (obstacle.damage);
 			var destructible = other.GetComponent<Destructible> ();
 			if (destructible != null)

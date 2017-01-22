@@ -20001,32 +20001,32 @@ Prefab:
     - target: {fileID: 224465723723737810, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224465723723737810, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224983256392607846, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224983256392607846, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224331600423663934, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224331600423663934, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114510115013353116, guid: a12b33273ba4a43e9b9a78b714bb34bd,
         type: 2}
@@ -41995,6 +41995,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bfc88d1647b46efb05627d4fcbe9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 748625554}
+  hit: {fileID: 8300000, guid: 35b5b6a8929bd4183a4993f9544bad1c, type: 3}
+  roomDestroyed: {fileID: 8300000, guid: 621b1938c1ac74a5f9b6afa7d21c34a4, type: 3}
   oxygenUsedPerSecond: 0.25
   damagePerSecondForMissingOxygen: 1
   sonarEnergyCost: 2
