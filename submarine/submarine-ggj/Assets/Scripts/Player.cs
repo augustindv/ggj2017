@@ -91,10 +91,10 @@ public class Player : MonoBehaviour
 				PerformAction ();
 			else {
 				int horizontal = 0;
-				if (Axis("Horizontal") > 0)
+				if (Input.GetKey(KeyCode.RightArrow))
 					horizontal = 1;
-				else if (Axis("Horizontal") < 0)
-					horizontal = -1;
+				else if (Input.GetKey(KeyCode.LeftArrow))
+                    horizontal = -1;
 
 				int vertical = 0;
 				if (Axis("Vertical") > 0)
