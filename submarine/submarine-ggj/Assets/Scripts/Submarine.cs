@@ -7,8 +7,9 @@ public class Submarine : MonoBehaviour {
 	public static readonly float HP_MAX = 100;
 	public static readonly float ENERGY_MAX = 100;
 	public static readonly float OXYGEN_MAX = 100;
+    public static readonly float CHANCE_DESTROY = 35;
 
-	public float oxygenUsedPerSecond = 0.25f;
+    public float oxygenUsedPerSecond = 0.25f;
 	public float damagePerSecondForMissingOxygen = 1.0f;
 	public float sonarEnergyCost = 2.0f;
 
@@ -21,6 +22,8 @@ public class Submarine : MonoBehaviour {
 	public float hp;
 	public float energy;
 	public float oxygen;
+
+    public Room[] roomsDestroyable;
 
 	public Transform world;
 
@@ -45,7 +48,12 @@ public class Submarine : MonoBehaviour {
 
 	void TakeDamage(float damage) {
 		hp -= damage;
-	}
+        float random = Random.Range(0, 100);
+        if (random <= CHANCE_DESTROY)
+        {
+            roomsDestroyable[Random.Range(0, roomsDestroyable.Length - 1)].needsRepair = true;
+        }
+    }
 
 	float Top() {
 		return depth + top;

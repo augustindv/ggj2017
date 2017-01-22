@@ -22,7 +22,7 @@ public class EnergyRoom : Room {
     public override IEnumerator UseRoom()
     {
         StartCoroutine(UseDoors());
-        while (submarine.energy < Submarine.ENERGY_MAX)
+        while (submarine.energy < Submarine.ENERGY_MAX && !needsRepair)
         {
             yield return new WaitForSeconds(timeElapsed);
             submarine.energy += energyAdded;

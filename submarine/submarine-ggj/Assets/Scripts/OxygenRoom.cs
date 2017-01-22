@@ -23,7 +23,7 @@ public class OxygenRoom : Room {
     public override IEnumerator UseRoom()
     {
         StartCoroutine(UseDoors());
-        while (submarine.oxygen < Submarine.OXYGEN_MAX)
+        while (submarine.oxygen < Submarine.OXYGEN_MAX && !needsRepair)
         {
             yield return new WaitForSeconds(timeElapsed);
             submarine.oxygen += oxygenAdded;
