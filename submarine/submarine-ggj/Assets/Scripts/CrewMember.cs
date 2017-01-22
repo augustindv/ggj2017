@@ -10,6 +10,8 @@ public class CrewMember : MonoBehaviour {
 
 	private Rigidbody rigidBody;
 
+	public Transform cameraPosition;
+
 	private int collidingLadders = 0;
 
     private Room actualRoom;

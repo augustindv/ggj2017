@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
 	public CrewMember[] crewMembers;
 
+	public CameraController cameraController;
+
 	Toggle activeCrewMember;
 
 	private bool ButtonDown(string button) {
@@ -49,6 +51,7 @@ public class Player : MonoBehaviour
 
 	void Start () {
 		activeCrewMember = new Toggle (crewMembers.Length, 0);
+		cameraController.SetTarget (ActiveCrewMember ().cameraPosition);
 	}
 
 	CrewMember ActiveCrewMember ()
@@ -96,6 +99,7 @@ public class Player : MonoBehaviour
 
 				Move (horizontal, vertical);
 			}
+			cameraController.SetTarget (ActiveCrewMember ().cameraPosition);
 		}
 	}
 
