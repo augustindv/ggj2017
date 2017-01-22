@@ -115,10 +115,7 @@ public class CrewMember : MonoBehaviour {
             actualRoom.isUsed = !actualRoom.isUsed;
 			StartCoroutine(actualRoom.UseDoors(actualRoom.doors));
             StopCoroutine(lastRoutine);
-            if (actualRoom.GetRoomName().Equals(Constants.SONAR))
-            {
-                actualRoom.sonar.SetActive(!actualRoom.sonar.active);
-            }
+			StartCoroutine (actualRoom.StopUsingRoom ());
         }
 	}
 

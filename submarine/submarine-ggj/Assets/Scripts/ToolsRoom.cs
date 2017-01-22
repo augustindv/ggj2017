@@ -21,6 +21,7 @@ public class ToolsRoom : Room {
     public override IEnumerator UseRoom()
     {
         StartCoroutine(UseDoors(doors));
+		yield return new WaitUntil (() => !IsUsingDoors ());
         this.crewMember.hasTool = !this.crewMember.hasTool;
         this.isUsed = !this.isUsed;
 		if (crewMember.hasTool)

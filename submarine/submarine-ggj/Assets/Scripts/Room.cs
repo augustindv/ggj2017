@@ -41,6 +41,8 @@ public abstract class Room : MonoBehaviour {
     public bool isBlinking = false;
     public bool lightGreen = true;
 
+	private int usingDoors = 0;
+
     // Use this for initialization
     void Start () {
 		
@@ -141,6 +143,8 @@ public abstract class Room : MonoBehaviour {
     {
 		if (doors.Length == 0)
 			yield return null;
+
+		usingDoors += 1;
 		
         float lerpTime = 1;
         float startTime = Time.time;
@@ -172,8 +176,19 @@ public abstract class Room : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
         }
+
+		usingDoors -= 1;
+
         yield return null;
     }
 
+	public bool IsUsingDoors() {
+		return usingDoors > 0;
+	}
+
     public abstract IEnumerator UseRoom();
+
+	public virtual IEnumerator StopUsingRoom() {
+		yield return null;
+	}
 }
