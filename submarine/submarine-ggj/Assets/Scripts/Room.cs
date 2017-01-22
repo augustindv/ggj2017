@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Room : MonoBehaviour {
+
+	public string helpText;
+
+	public Text helpDisplay;
 
     [HideInInspector]
     public Collider collider;
@@ -85,10 +90,21 @@ public abstract class Room : MonoBehaviour {
         isBlinking = false;
     }
 
+	void ShowHelpText() {
+		helpDisplay.gameObject.SetActive (true);
+		helpDisplay.text = helpText;
+	}
+
+	void HideHelpText() {
+		helpDisplay.gameObject.SetActive (false);
+		helpDisplay.text = "";
+	}
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == Constants.TAG_CREW_MEMBER)
         {
+			ShowHelpText ();
             isOccupied = true;
         }
     }
@@ -97,6 +113,7 @@ public abstract class Room : MonoBehaviour {
     {
         if (other.tag == Constants.TAG_CREW_MEMBER)
         {
+			HideHelpText ();
             isOccupied = false;
         }
     }
@@ -120,7 +137,7 @@ public abstract class Room : MonoBehaviour {
         yield return null;
     }
 
-    public IEnumerator UseDoors()
+	public IEnumerator UseDoors(GameObject[] doors)
     {
 		if (doors.Length == 0)
 			yield return null;
@@ -131,7 +148,7 @@ public abstract class Room : MonoBehaviour {
         if (doorsClosed)
         {
             doorsClosed = !doorsClosed;
-			while (doors[0] != null && Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f > 0 && !doorsClosed)
+			while (doors.Length > 0 && doors[0] != null && Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f > 0 && !doorsClosed)
             {
                 float timeProgressed = (Time.time - startTime) / lerpTime;
                 foreach (var door in doors)
@@ -144,7 +161,7 @@ public abstract class Room : MonoBehaviour {
         } else
         {
             doorsClosed = !doorsClosed;
-			while (doors[0] != null && Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f < 1 && doorsClosed)
+			while (doors.Length > 0 && doors[0] != null && Mathf.Round(doors[0].transform.localScale.y * 100f) / 100f < 1 && doorsClosed)
             {
                 float timeProgressed = (Time.time - startTime) / lerpTime;
                 foreach (var door in doors)

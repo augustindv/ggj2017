@@ -16,7 +16,7 @@ public class ControlsRoom : Room {
     public override IEnumerator UseRoom()
     {
 		if (submarine.HasEnergy(1))
-			StartCoroutine(UseDoors());
+			StartCoroutine(UseDoors(doors));
         yield return null;
     }
 }

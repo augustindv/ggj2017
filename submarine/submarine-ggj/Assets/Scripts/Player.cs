@@ -78,10 +78,15 @@ public class Player : MonoBehaviour
 	void FixedUpdate ()
 	{
 		if (game.CurrentGameMode () == GameMode.RUNNING) {
-			if (ButtonDown("Next"))
+			if (ButtonDown ("Next")) {
 				activeCrewMember.Next ();
-			else if (ButtonDown("Prev"))
+				if (ActiveCrewMember().hasTool)
+					ActiveCrewMember().ShowToolsWarning ();
+			} else if (ButtonDown ("Prev")) {
+				if (ActiveCrewMember().hasTool)
+					ActiveCrewMember().ShowToolsWarning ();
 				activeCrewMember.Previous ();
+			}
 			else if (ButtonDown("Fire1"))
 				PerformAction ();
 			else {

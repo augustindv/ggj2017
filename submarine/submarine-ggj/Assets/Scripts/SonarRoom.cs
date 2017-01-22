@@ -19,13 +19,13 @@ public class SonarRoom : Room {
     public override IEnumerator UseRoom()
     {
 		if (submarine.HasEnergy(submarine.sonarEnergyCost)) {
-			StartCoroutine(UseDoors());
+			StartCoroutine(UseDoors(doors));
 			submarine.energy -= submarine.sonarEnergyCost;
 			sonar.SetActive(!sonar.active);
 			yield return new WaitForSeconds(duration);
 			this.isUsed = !this.isUsed;
 			sonar.SetActive(!sonar.active);
-			StartCoroutine(UseDoors());
+			StartCoroutine(UseDoors(doors));
 		}
     }
 }

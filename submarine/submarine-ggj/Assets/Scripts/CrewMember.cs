@@ -20,6 +20,14 @@ public class CrewMember : MonoBehaviour {
 
     public bool hasTool;
 
+	public WarningDisplay warningDisplay;
+
+	public string toolsWarning = "You are carrying tools, and can now repair disabled rooms. Until you return the tools you cannot use anything else.";
+
+	public void ShowToolsWarning() {
+		warningDisplay.ShowWarning (toolsWarning);
+	}
+
     void Start () {
 		rigidBody = GetComponentInChildren<Rigidbody> ();
 	}
@@ -105,7 +113,7 @@ public class CrewMember : MonoBehaviour {
         else if (IsUsingRoom())
         {
             actualRoom.isUsed = !actualRoom.isUsed;
-            StartCoroutine(actualRoom.UseDoors());
+			StartCoroutine(actualRoom.UseDoors(actualRoom.doors));
             StopCoroutine(lastRoutine);
             if (actualRoom.GetRoomName().Equals(Constants.SONAR))
             {

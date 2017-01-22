@@ -21,14 +21,14 @@ public class EnergyRoom : Room {
 
     public override IEnumerator UseRoom()
     {
-        StartCoroutine(UseDoors());
+        StartCoroutine(UseDoors(doors));
         while (submarine.energy < Submarine.ENERGY_MAX)
         {
             yield return new WaitForSeconds(timeElapsed);
             submarine.energy += energyAdded;
         }
         this.isUsed = !this.isUsed;
-        StartCoroutine(UseDoors());
+        StartCoroutine(UseDoors(doors));
         yield return null;
     }
 }

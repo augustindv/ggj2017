@@ -22,14 +22,14 @@ public class OxygenRoom : Room {
 
     public override IEnumerator UseRoom()
     {
-        StartCoroutine(UseDoors());
+        StartCoroutine(UseDoors(doors));
         while (submarine.oxygen < Submarine.OXYGEN_MAX)
         {
             yield return new WaitForSeconds(timeElapsed);
             submarine.oxygen += oxygenAdded;
         }
         this.isUsed = !this.isUsed;
-        StartCoroutine(UseDoors());
+        StartCoroutine(UseDoors(doors));
         yield return null;
     }
 }
