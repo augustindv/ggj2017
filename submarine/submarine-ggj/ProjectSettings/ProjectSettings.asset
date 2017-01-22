@@ -205,7 +205,13 @@ PlayerSettings:
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 6d7607aa9beec48ada2d2a7b08948645, type: 3}
+      m_Width: 128
+      m_Height: 128
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []
@@ -371,7 +377,8 @@ PlayerSettings:
   webGLUseEmbeddedResources: 0
   webGLUseWasm: 0
   webGLCompressionFormat: 1
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    13: 3
   platformArchitecture: {}
   scriptingBackend: {}
   incrementalIl2cppBuild: {}
