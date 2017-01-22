@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CrewMember : MonoBehaviour {
 
+	public AudioSource audioSource;
+	public AudioClip step;
+	public AudioClip climb;
+
     public float speed = 2.5f;
 
 	public float climbSpeed = 1.5f;
@@ -124,6 +128,12 @@ public class CrewMember : MonoBehaviour {
 		return currentSpeed * Time.fixedDeltaTime;
 	}
 
+	void PlayClip(AudioClip clip) {
+		audioSource.pitch = 0.5f + 0.5f * Random.value;
+		if (!audioSource.isPlaying)
+			audioSource.PlayOneShot (clip);
+	}
+
 	public void Move(int horizontal, int vertical) {
 		if (!IsOnLadder () && !IsControllingSub())
 			vertical = 0;
@@ -133,6 +143,11 @@ public class CrewMember : MonoBehaviour {
             var currentPosition = rigidBody.transform.position;
 
             var movement = new Vector3(horizontal * CurrentSpeed(), vertical * CurrentSpeed(), 0);
+
+			if (IsOnLadder () && vertical != 0)
+				PlayClip (climb);
+			else if (horizontal != 0)
+				PlayClip (step);
 
             rigidBody.MovePosition(currentPosition + movement);
 		} else if (IsControllingSub() && actualRoom.submarine.HasEnergy(1))

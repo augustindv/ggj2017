@@ -21,11 +21,13 @@ public class SonarRoom : Room {
 		if (submarine.HasEnergy(submarine.sonarEnergyCost)) {
 			StartCoroutine(UseDoors(doors));
 			yield return new WaitUntil (() => !IsUsingDoors ());
+			PlaySound ();
 			submarine.energy -= submarine.sonarEnergyCost;
 			sonar.SetActive(true);
 			yield return new WaitForSeconds(duration);
 			this.isUsed = !this.isUsed;
 			sonar.SetActive(false);
+			StopSound ();
 			StartCoroutine(UseDoors(doors));
 		}
     }

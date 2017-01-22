@@ -24,7 +24,7 @@ public class EnergyRoom : Room {
         StartCoroutine(UseDoors(doors));
 		yield return new WaitUntil (() => !IsUsingDoors ());
 		PlaySound ();
-        while (submarine.energy < Submarine.ENERGY_MAX)
+		while (submarine.energy < Submarine.ENERGY_MAX && !needsRepair)
         {
             yield return new WaitForSeconds(timeElapsed);
             submarine.energy += energyAdded;
