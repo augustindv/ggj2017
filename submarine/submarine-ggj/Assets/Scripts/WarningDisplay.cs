@@ -11,6 +11,10 @@ public class WarningDisplay : MonoBehaviour {
 
 	Coroutine fadeout = null;
 
+	void Start() {
+		display.gameObject.SetActive (false);
+	}
+
 	public void ShowWarning(string text) {
 		if (fadeout != null)
 			StopCoroutine (fadeout);
