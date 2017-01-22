@@ -9,6 +9,8 @@ public abstract class Room : MonoBehaviour {
 
 	public Text helpDisplay;
 
+	public AudioSource soundWhenUsing;
+
     [HideInInspector]
     public Collider collider;
     // Boolean to know if the room is occupied by a crew member
@@ -186,9 +188,21 @@ public abstract class Room : MonoBehaviour {
 		return usingDoors > 0;
 	}
 
-    public abstract IEnumerator UseRoom();
+	protected void PlaySound() {
+		if (soundWhenUsing != null)
+			soundWhenUsing.Play ();
+	}
+
+	protected void StopSound() {
+		if (soundWhenUsing != null)
+			soundWhenUsing.Stop ();
+	}
+
+
+	public abstract IEnumerator UseRoom ();
 
 	public virtual IEnumerator StopUsingRoom() {
+		StopSound ();
 		yield return null;
 	}
 }

@@ -29,6 +29,7 @@ public class ControlsRoom : Room {
 	public override IEnumerator StopUsingRoom() {
 		yield return new WaitUntil (() => !IsUsingDoors ());
 		cameraController.SetSonarMode (false);
+		StopSound ();
 		yield return null;
 
 	}
