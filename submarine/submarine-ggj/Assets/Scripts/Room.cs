@@ -54,6 +54,9 @@ public abstract class Room : MonoBehaviour {
             foreach (var light in lights)
             {
                 light.color = new Color(255, 0, 0);
+                light.intensity = 1;
+                light.range = 2;
+                light.bounceIntensity = 0;
                 StartCoroutine(Blink(light));
             }
         }
@@ -61,8 +64,11 @@ public abstract class Room : MonoBehaviour {
         {
             foreach (var light in lights)
             {
+                light.intensity = 5;
+                light.range = 3;
+                light.bounceIntensity = 3;
+                light.color = new Color(0, 65 / 255, 0, 1);
                 light.enabled = true;
-                light.color = new Color(0, 25.0f / 255, 0, 1);
             }
             lightGreen = true;
         }
