@@ -9,6 +9,10 @@ public class ControlsRoom : Room {
         this.roomName = Constants.CONTROLS;
     }
 
+    void FixedUpdate () {
+        Lights();
+    }
+
     public override IEnumerator UseRoom()
     {
 		if (submarine.HasEnergy(1))

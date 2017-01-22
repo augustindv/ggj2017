@@ -17173,7 +17173,7 @@ GameObject:
   - component: {fileID: 4119307918703522}
   - component: {fileID: 114727862012898468}
   m_Layer: 0
-  m_Name: Game
+  m_Name: Game_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73967,8 +73967,11 @@ MonoBehaviour:
   doors:
   - {fileID: 1247253583031430}
   - {fileID: 1581310389760480}
+  lights: []
   timeElapsedRepair: 2
   durationRepair: 6
+  isBlinking: 0
+  lightGreen: 1
 --- !u!114 &114423752783759636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73991,8 +73994,11 @@ MonoBehaviour:
   roomName: 
   crewMember: {fileID: 0}
   doors: []
+  lights: []
   timeElapsedRepair: 2
   durationRepair: 6
+  isBlinking: 0
+  lightGreen: 1
 --- !u!114 &114448070238162882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74090,8 +74096,11 @@ MonoBehaviour:
   doors:
   - {fileID: 1263323592513266}
   - {fileID: 1367282574109940}
+  lights: []
   timeElapsedRepair: 2
   durationRepair: 6
+  isBlinking: 0
+  lightGreen: 1
   oxygenAdded: 20
   timeElapsed: 2
 --- !u!114 &114798628738534030
@@ -74132,8 +74141,11 @@ MonoBehaviour:
   crewMember: {fileID: 0}
   doors:
   - {fileID: 1059533637621520}
+  lights: []
   timeElapsedRepair: 2
   durationRepair: 6
+  isBlinking: 0
+  lightGreen: 1
   duration: 5
 --- !u!114 &114864306701227424
 MonoBehaviour:
@@ -74158,8 +74170,11 @@ MonoBehaviour:
   crewMember: {fileID: 0}
   doors:
   - {fileID: 1224552129691988}
+  lights: []
   timeElapsedRepair: 2
   durationRepair: 6
+  isBlinking: 0
+  lightGreen: 1
   energyAdded: 20
   timeElapsed: 2
 --- !u!114 &114898397552569790

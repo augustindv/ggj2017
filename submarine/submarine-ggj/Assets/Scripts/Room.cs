@@ -25,10 +25,16 @@ public abstract class Room : MonoBehaviour {
 
     public GameObject[] doors;
 
+    public Light[] lights;
+
     public float timeElapsedRepair = 2;
     public float durationRepair = 6f;
 
     private float localTimeRepair;
+    private float waitingTimeBlink = 0.5f;
+
+    public bool isBlinking = false;
+    public bool lightGreen = true;
 
     // Use this for initialization
     void Start () {
@@ -37,8 +43,47 @@ public abstract class Room : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
+
+    public void Lights()
+    {
+        if (needsRepair && !isBlinking)
+        {
+            lightGreen = false;
+            foreach (var light in lights)
+            {
+                light.color = new Color(255, 0, 0);
+                light.intensity = 1;
+                light.range = 2;
+                light.bounceIntensity = 0;
+                StartCoroutine(Blink(light));
+            }
+        }
+        else if (!isBlinking && !lightGreen)
+        {
+            foreach (var light in lights)
+            {
+                light.intensity = 5;
+                light.range = 3;
+                light.bounceIntensity = 3;
+                light.color = new Color(0, 65 / 255, 0, 1);
+                light.enabled = true;
+            }
+            lightGreen = true;
+        }
+    }
+
+    public IEnumerator Blink(Light light)
+    {
+        isBlinking = true;
+        while (needsRepair)
+        {
+            yield return new WaitForSeconds(waitingTimeBlink);
+            light.enabled = !(light.enabled);
+        }
+        isBlinking = false;
+    }
 
     public void OnTriggerEnter(Collider other)
     {

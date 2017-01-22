@@ -12,6 +12,10 @@ public class SonarRoom : Room {
         this.roomName = Constants.SONAR;
     }
 
+	void FixedUpdate () {
+        Lights();
+    }
+
     public override IEnumerator UseRoom()
     {
 		if (submarine.HasEnergy(submarine.sonarEnergyCost)) {

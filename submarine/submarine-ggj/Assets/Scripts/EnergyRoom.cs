@@ -16,8 +16,8 @@ public class EnergyRoom : Room {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        Lights();
+    }
 
     public override IEnumerator UseRoom()
     {
