@@ -6,7 +6,7 @@ public enum InputMode { KEYBOARD, GAMEPAD }
 
 public class GlobalSettings  {
 
-	public int numberOfPlayers = 1;
+	public int numberOfPlayers = 2;
 
 	public InputMode inputPlayerOne = InputMode.KEYBOARD;
 

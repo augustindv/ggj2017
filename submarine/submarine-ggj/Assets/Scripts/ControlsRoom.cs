@@ -12,6 +12,7 @@ public class ControlsRoom : Room {
 
     // Update is called once per frame
     void FixedUpdate () {
+        Lights();
     }
 
     public override IEnumerator UseRoom()

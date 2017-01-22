@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 		activeCrewMember [playerId].Next ();
 		if (GlobalSettings.Instance ().numberOfPlayers > 1) {
 			if (ActiveCrewMember(PlayerId.TWO) == ActiveCrewMember(PlayerId.TWO))
-				activeCrewMember [playerId].Next ();
+                activeCrewMember[playerId].Next ();
 		}
 	}
 

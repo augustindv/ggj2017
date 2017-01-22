@@ -17,8 +17,8 @@ public class OxygenRoom : Room {
 
     // Update is called once per frame
     void Update() {
-		
-	}
+        Lights();
+    }
 
     public override IEnumerator UseRoom()
     {
